@@ -78,7 +78,6 @@ def ProvinciasComarcas():
     exit_button.pack(pady=20)
 
 def Bocasdeltoro():
-
     ventana_bocas = tk.Toplevel()
     ventana_bocas.title("Bocas del Toro")
     ventana_bocas.geometry("600x400")
@@ -160,7 +159,7 @@ def PlayaEstrella():
     detalles.place(x=350, y=250)
 
     # Botones de "RESERVAR" y "VOLVER"
-    boton_reservar = tk.Button(ventana_PlayaEstrella, text="RESERVAR", width=15, font=("Arial", 12), bg="white")
+    boton_reservar = tk.Button(ventana_PlayaEstrella, text="RESERVAR", width=15, font=("Arial", 12), bg="white", command=Reserva)
     boton_reservar.place(x=200, y=420)
 
     boton_volver = tk.Button(ventana_PlayaEstrella, text="VOLVER", width=15, font=("Arial", 12), bg="white", command=ventana_PlayaEstrella.destroy)
@@ -168,7 +167,43 @@ def PlayaEstrella():
 
 
 def Cocle():
-    messagebox.showinfo(" ")
+    ventana_cocle = tk.Toplevel()
+    ventana_cocle.title("Cocle")
+    ventana_cocle.geometry("600x400")
+
+    frame = tk.Frame(ventana_cocle)
+    frame.pack(pady=20)
+
+    descripcionCocle ="""Coclé es una provincia del centro de Panamá. Su superficie es de 4,927km² y 
+    cuenta con 268,264 habitantes (2023).Su capital es Penonomé. Limita al norte con la provincia de Colón, 
+    al este con la provincia de Panamá Oeste, al sur con la de Herrera y el golfo de Parita y al oeste con la de Veraguas. 
+    El centro y norte de la provincia esta accidentados por la cordillera central; al sur pertenece las llanuras centrales, 
+    tierras bajas muy fértiles que se extienden hasta el litoral. También es una provincia de gran riqueza natural y material. 
+    Es además el epicentro de la cultura precolombina más avanzada del istmo."""
+    description_label = tk.Label(frame, text=descripcionCocle, wraplength=500, justify="left")
+    description_label.pack()
+
+    try:
+        image_path = "imagenes/Cocle.jpg"  # Ruta a la imagen
+        image = Image.open(image_path)  # Cargar la imagen
+        image = image.resize((250, 150), Image.LANCZOS)
+        photo = ImageTk.PhotoImage(image)
+        image_label = tk.Label(frame, image=photo)
+        image_label.image = photo 
+        image_label.pack(pady=10)
+    except Exception as e:
+        messagebox.showerror("Error", f"Could not load image: {e}")
+
+    lugaresCocle = tk.Menu(ventana_cocle)
+    ventana_cocle.config(menu=lugaresCocle)
+
+    menu_cocle = tk.Menu(lugaresCocle, tearoff=0)
+    menu_cocle.add_command(label="lugar1",)
+    menu_cocle.add_command(label="lugar2", )
+    menu_cocle.add_command(label="lugar3", )
+    menu_cocle.add_command(label="lugar4", )
+
+    lugaresCocle.add_cascade(label="Provincia Cocle", menu=menu_cocle)
 
 def Colon():
     messagebox.showinfo(" ")
@@ -203,6 +238,59 @@ def GunaYala():
 def NgabeBugle():
     messagebox.showinfo(" ")
 
+def Reserva():
+    ventana_reserva = tk.Toplevel()
+    ventana_reserva.title("Reservar Actividad Turística")
+    ventana_reserva.geometry("600x500")
+
+    # Variables para almacenar los datos del cliente
+    nombre_var = StringVar()
+    nacionalidad_var = StringVar()
+    sexo_var = StringVar()
+    identificacion_var = StringVar()
+    telefono_var = StringVar()
+    cantidad_personas_var = StringVar()
+
+    # Preguntar la cantidad de personas
+    tk.Label(ventana_reserva, text="Cantidad de personas:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=cantidad_personas_var).pack(pady=5)
+
+    # Preguntar el nombre del usuario
+    tk.Label(ventana_reserva, text="Nombre:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=nombre_var).pack(pady=5)
+
+    # Preguntar la nacionalidad
+    tk.Label(ventana_reserva, text="Nacionalidad:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=nacionalidad_var).pack(pady=5)
+
+    # Preguntar el sexo
+    tk.Label(ventana_reserva, text="Sexo:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=sexo_var).pack(pady=5)
+
+    # Preguntar la identificación personal
+    tk.Label(ventana_reserva, text="Identificación Personal:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=identificacion_var).pack(pady=5)
+
+    # Preguntar el teléfono
+    tk.Label(ventana_reserva, text="Teléfono:").pack(pady=5)
+    tk.Entry(ventana_reserva, textvariable=telefono_var).pack(pady=5)
+
+    # Función para manejar el pago
+    def pagar():
+        messagebox.showinfo("pagar", "Funcionalidad de pagar no implementada.")
+
+    # Función para manejar el abono
+    def abono():
+        messagebox.showinfo("Abono", "Funcionalidad de abono no implementada.")
+
+    # Botones de Pagar y Abono
+    tk.Button(ventana_reserva, text="Pagar", command=pagar).pack(pady=10)
+    tk.Button(ventana_reserva, text="Abono", command=abono).pack(pady=10)
+
+    # Botón para regresar al menú anterior
+    tk.Button(ventana_reserva, text="Regresar", command=ventana_reserva.destroy).pack(pady=10)
+    
+    
 # Crear la ventana principal
 ventana = tk.Tk()
 ventana.title("Actividades Turísticas en Panamá")
@@ -217,7 +305,6 @@ menu_prin.add_command(label="Ver Provincias y Comarcas", command=ProvinciasComar
 menu_prin.add_separator()  # Añadir un separador
 menu_prin.add_command(label="Salir", command=ventana.quit)
 
-# Añadir el menú "Archivo" a la barra de menú
 menu_bar.add_cascade(label="Menu", menu=menu_prin)
 
 # Configurar la barra de menú en la ventana principal
