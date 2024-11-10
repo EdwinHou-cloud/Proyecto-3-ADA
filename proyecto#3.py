@@ -211,15 +211,14 @@ ventana.geometry("400x300")
 # Crear la barra de menú
 menu_bar = tk.Menu(ventana)
 
-# Crear el menú "Archivo"
-menu_archivo = tk.Menu(menu_bar, tearoff=0)
-menu_archivo.add_command(label="Presentación", command=Presentacion)
-menu_archivo.add_command(label="Ver Provincias y Comarcas", command=ProvinciasComarcas)
-menu_archivo.add_separator()  # Añadir un separador
-menu_archivo.add_command(label="Salir", command=ventana.quit)
+menu_prin = tk.Menu(menu_bar, tearoff=0)
+menu_prin.add_command(label="Presentación", command=Presentacion)
+menu_prin.add_command(label="Ver Provincias y Comarcas", command=ProvinciasComarcas)
+menu_prin.add_separator()  # Añadir un separador
+menu_prin.add_command(label="Salir", command=ventana.quit)
 
 # Añadir el menú "Archivo" a la barra de menú
-menu_bar.add_cascade(label="Menu", menu=menu_archivo)
+menu_bar.add_cascade(label="Menu", menu=menu_prin)
 
 # Configurar la barra de menú en la ventana principal
 ventana.config(menu=menu_bar)
