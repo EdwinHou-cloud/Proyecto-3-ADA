@@ -89,7 +89,7 @@ def Bocasdeltoro():
     title_label.pack(pady=10)
 
     frame = tk.Frame(ventana_bocas)
-    frame.pack(pady=5)
+    frame.pack(pady=10)
 
     # Descripción de la provincia
     descripcionBocas = (
@@ -382,8 +382,11 @@ def Colon():
     ventana_colon.title("Colon")
     ventana_colon.geometry("600x400")
 
+    title_label = tk.Label(ventana_colon, text="Provincia: Colon", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_colon)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionColon ="""Colón es la capital de la provincia panameña de Colón, ubicada en la costa caribeña de Panamá. 
     La población estimada para 2016 es de unas 84,229 personas en su conurbación. 
@@ -423,8 +426,11 @@ def Chiriqui():
     ventana_chiriqui.title("Chiriqui")
     ventana_chiriqui.geometry("600x400")
 
+    title_label = tk.Label(ventana_chiriqui, text="Provincia: Chiriqui", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_chiriqui)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionchiriqui ="""Chiriquí es una provincia de Panamá ubicada en la región occidental del país, 
     teniendo como límites al norte la provincia de Bocas del Toro y la comarca Ngäbe-Buglé, 
@@ -463,8 +469,11 @@ def Darien():
     ventana_darien.title("Darien")
     ventana_darien.geometry("600x400")
 
+    title_label = tk.Label(ventana_darien, text="Provincia: Darien", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_darien)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripciondarien ="""Darién es una de las diez provincias de Panamá. Su capital es la ciudad de La Palma. 
     Tiene una extensión de 11 896,5 km², siendo por lo tanto la más extensa del país. Está ubicada en el extremo 
@@ -504,8 +513,11 @@ def Herrera():
     ventana_herrera.title("Herrera")
     ventana_herrera.geometry("600x400")
 
+    title_label = tk.Label(ventana_herrera, text="Provincia: Herrera", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_herrera)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionherrera ="""Herrera es una provincia panameña situada en el norte de la península de Azuero y 
     su cabecera es la ciudad de Chitré. Limita al norte con las provincias de Veraguas y Coclé, al sur con 
@@ -545,8 +557,11 @@ def LosSantos():
     ventana_lossantos.title("Los Santos")
     ventana_lossantos.geometry("600x400")
 
+    title_label = tk.Label(ventana_lossantos, text="Provincia: Los Santos", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_lossantos)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionlossantos ="""Los Santos es una provincia panameña, situada al sureste de la península de Azuero. 
     Las Tablas es su capital y localidad más poblada. Está compuesta por los distritos de Los Santos, Guararé, 
@@ -586,8 +601,11 @@ def Panama():
     ventana_panama.title("Panama")
     ventana_panama.geometry("600x400")
 
+    title_label = tk.Label(ventana_panama, text="Provincia: Panama", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_panama)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionpanama ="""Panamá es una provincia y la capital del país, ubicada en la región central. 
     Tiene una extensión de 11,289 km² y una población de aproximadamente 1.8 millones de habitantes (2018). 
@@ -625,8 +643,11 @@ def Veraguas():
     ventana_veraguas.title("Veraguas")
     ventana_veraguas.geometry("600x400")
 
+    title_label = tk.Label(ventana_veraguas, text="Provincia: Veraguas", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_veraguas)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionveraguas ="""Veraguas es una de las diez provincias de Panamá. Su capital es la ciudad de Santiago de Veraguas. 
     Tiene una superficie de 10 629 km², y un área de 10.587,6 km² y en el año 2022 tenía una población estimada de 248,000.3. 
@@ -667,8 +688,11 @@ def PanamaOeste():
     ventana_panoeste.title("Panama Oeste")
     ventana_panoeste.geometry("600x400")
 
+    title_label = tk.Label(ventana_panoeste, text="Provincia: Panama Oeste", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_panoeste)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionpanoeste ="""Panamá Oeste es una de las diez provincias de Panamá, creada el 1.º de enero de 2014 
     a partir de territorios segregados de la provincia de Panamá ubicados al oeste del canal de Panamá. 
@@ -708,8 +732,11 @@ def EmberaWounaan():
     ventana_embera.title("Embera Wounaan")
     ventana_embera.geometry("600x400")
 
+    title_label = tk.Label(ventana_embera, text="Comarca: Embera Wounaan", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_embera)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionembera ="""Emberá-Wounaan es una comarca indígena de Panamá. Fue creada en 1983 a partir de dos 
     enclaves ubicados en la provincia de Darién, específicamente de los distritos de Chepigana y Pinogana. 
@@ -748,8 +775,11 @@ def GunaYala():
     ventana_guna.title("Guna Yala")
     ventana_guna.geometry("600x400")
 
+    title_label = tk.Label(ventana_guna, text="Comarca: Guna Yala", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_guna)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionguna ="""Guna Yala es una comarca indígena en Panamá, habitada por la etnia guna. 
     Antiguamente la comarca se llamó San Blas, hasta 1998 y Kuna Yala, hasta 2010. Los locales 
@@ -789,8 +819,11 @@ def NgabeBugle():
     ventana_ngabe.title("Ngabe-Bugle")
     ventana_ngabe.geometry("600x400")
 
+    title_label = tk.Label(ventana_ngabe, text="Comarca: Ngabe-Bugle", font=("Arial", 16, "bold"))
+    title_label.pack(pady=10)
+
     frame = tk.Frame(ventana_ngabe)
-    frame.pack(pady=20)
+    frame.pack(pady=10)
 
     descripcionngabe ="""Esta comarca fue creada en 1997 a partir del territorio de Bocas del Toro, 
     Chiriquí y Veraguas. Su capital es Llano Tugrí (o Buabïti). La comarca está habitada por las 
