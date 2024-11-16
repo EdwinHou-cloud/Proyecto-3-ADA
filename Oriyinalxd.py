@@ -716,7 +716,7 @@ def Colon():
     menu_colon.add_command(label="Esclusas de agua clara", command= EsclusasAguaClaraColon )
     menu_colon.add_command(label="Parque Nacional Chagres", command= ParqueNacionalChagres )
     
-    lugaresColon.add_cascade(label="Provincia Colon", menu=menu_colon)
+    lugaresColon.add_cascade(label="Lugares Turistico de Colon que deberias visitar ", menu=menu_colon)
     
     boton_regresar = tk.Button(ventana_colon, text="Regresar", width=15, font=("Arial", 12), bg="white", command=ventana_colon.destroy)
     boton_regresar.place(x=450, y=335)
@@ -975,7 +975,7 @@ def Chiriqui():
     menu_chiriqui.add_command(label="Refugio de Vida Silvestre Jungla de Panamá", command= RefugioJunglaChiriqui)
     menu_chiriqui.add_command(label="Abejas y Mariposas de Boquete", command=AbejasMariposasBoquete)
     
-    lugaresChiriqui.add_cascade(label="Provincia Chiriqui", menu=menu_chiriqui)
+    lugaresChiriqui.add_cascade(label="Lugares Turistico de Chiriqui que deberias visitar", menu=menu_chiriqui)
     
     boton_regresar = tk.Button(ventana_chiriqui, text="Regresar", width=15, font=("Arial", 12), bg="white", command=ventana_chiriqui.destroy)
     boton_regresar.place(x=450, y=335)
@@ -1239,7 +1239,7 @@ def Darien():
     menu_darien.add_command(label="Yaviza y el fin de la carretera Panamericana", command= YavizaFinPanamericana)
     menu_darien.add_command(label="Río Chucunaque", command=RioChucunaqueDarien)
     
-    lugaresDarien.add_cascade(label="Provincia Darien", menu=menu_darien)
+    lugaresDarien.add_cascade(label="Lugares Turistico de Darien que deberias visitar", menu=menu_darien)
     
     boton_regresar = tk.Button(ventana_darien, text="Regresar", width=15, font=("Arial", 12), bg="white", command=ventana_darien.destroy)
     boton_regresar.place(x=450, y=335)
@@ -1498,7 +1498,7 @@ def Herrera():
     menu_herrera.add_command(label="Museo de Herrera en Chitré", command= MuseoHerreraChitre)
     menu_herrera.add_command(label="Las Tablas de Sarigua", command=LasTablasDeSarigua)
     
-    lugaresHerrera.add_cascade(label="Provincia Herrera", menu=menu_herrera)
+    lugaresHerrera.add_cascade(label="Lugares Turistico de Herrera que deberias visitar ", menu=menu_herrera)
     
     boton_regresar = tk.Button(ventana_herrera, text="Regresar", width=15, font=("Arial", 12), bg="white", command=ventana_herrera.destroy)
     boton_regresar.place(x=450, y=335)
@@ -1758,7 +1758,7 @@ def LosSantos():
     menu_losantos.add_command(label="Playa Venao", command= PlayaVenao)
     menu_losantos.add_command(label="Museo de la Nacionalidad en Villa de Los Santos", command= MuseoNacionalidadLosSantos)
     
-    lugaresLossantos.add_cascade(label="Provincia Los Santos", menu=menu_losantos)
+    lugaresLossantos.add_cascade(label="Lugares Turistico de Los Santos que deberias visitar ", menu=menu_losantos)
     
     boton_regresar = tk.Button(ventana_lossantos, text="Regresar", width=15, font=("Arial", 12), bg="white", command=ventana_lossantos.destroy)
     boton_regresar.place(x=450, y=335)
@@ -3793,11 +3793,9 @@ def Muna():
     descripcion_texto = (
         "Munä es uno de los distritos con diversidad natural, historica y cultural, le ofrece experiencias únicas" 
         "e inigualables, dándoles la oportunidad de tener inolvidables aventuras. Herederos de una cultura ancestral" 
-        "Ngäbe Bugle, con de sitios arqueológicos, hogar de las culturas Pre - Hispanicas, vestigios que hasta el momento" 
-        "continuan vivos gracias a las costumbres y tradiciones del pueblo Ngäbe y Buglé. Desde los limites con la provincia" 
+        " Ngäbe Bugle, con de sitios arqueológicos, hogar de las culturas Pre - Hispanicas. Desde los limites con la provincia" 
         "de Chiriqui hasta las montañas y la selva, distrute de una mixtura única de cultura, historia, aventura, naturaleza" 
-        "e inimaginable variedad que se complementa a la perfección con la cordialidad del pueblo Ngäbe. Difrute de cada viaje," 
-        "diseñado cuidadosamente por nuestro equipo."
+        "e inimaginable variedad que se complementa a la perfección con la cordialidad del pueblo Ngäbe."
 
     )
     descripcion = tk.Label(descripcion_frame, text=descripcion_texto, wraplength=280, justify="left", bg="white", font=("Arial", 10))
@@ -4460,12 +4458,29 @@ def Reserva(nombre_actividad):
 
         # Función para manejar el pago
         def realizar_pago():
-            try:
-                cantidad_personas = int(cantidad_personas_var.get())
-                precio_total = cantidad_personas * precio_por_persona
-            except ValueError:
-                messagebox.showerror("Error", "Por favor, ingrese un número válido para la cantidad de personas.")
+            # Validaciones
+            if not nombre_var.get().strip():
+                messagebox.showerror("Error", "El nombre no puede estar vacío.")
                 return
+            if not nacionalidad_var.get().strip().isalpha():
+                messagebox.showerror("Error", "La nacionalidad debe contener solo letras.")
+                return
+            if not edad_var.get().strip().isdigit() or int(edad_var.get()) < 18:
+                messagebox.showerror("Error", "La edad debe ser un número mayor a 18.")
+                return
+            if not telefono_var.get().strip().isdigit():
+                messagebox.showerror("Error", "El teléfono debe contener solo números.")
+                return
+            if not cantidad_personas_var.get().strip().isdigit():
+                messagebox.showerror("Error", "La cantidad de personas debe ser un número válido.")
+                return
+            if not identificacion_var.get().strip():
+                messagebox.showerror("Error", "La identificación no puede estar vacía.")
+                return
+
+            # Si todas las validaciones pasan, proceder con el pago
+            cantidad_personas = int(cantidad_personas_var.get())
+            precio_total = cantidad_personas * precio_por_persona
 
             pagar(nombre_var.get(), identificacion_var.get(), telefono_var.get(),
                   nacionalidad_var.get(), detalles_texto, precio_total,
